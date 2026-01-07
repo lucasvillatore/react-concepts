@@ -1,0 +1,131 @@
+/* RenderGraph.css */
+
+/* Reset básico */
+.tree-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: auto; /* Caso a árvore fique muito larga */
+}
+
+/* --- ESTRUTURA DA ÁRVORE (UL/LI) --- */
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    transition: all 0.5s;
+    display: flex; /* Coloca os filhos lado a lado */
+    justify-content: center;
+    margin: 0;
+    padding-left: 0;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px; /* Espaçamento entre os nós */
+    transition: all 0.5s;
+}
+
+/* --- DESENHANDO AS LINHAS (CONECTORES) --- */
+
+/* Linha vertical (Haste) saindo de cima do LI */
+.tree li::before,
+.tree li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid #ccc;
+    width: 50%;
+    height: 20px;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #ccc;
+}
+
+/* Remove conectores dos nós isolados ou extremos */
+.tree li:only-child::after,
+.tree li:only-child::before {
+    display: none;
+}
+.tree li:only-child {
+    padding-top: 0;
+}
+
+/* Remove conector esquerdo do primeiro filho */
+.tree li:first-child::before {
+    border: 0 none;
+}
+/* Remove conector direito do último filho */
+.tree li:last-child::after {
+    border: 0 none;
+}
+/* Adiciona a borda vertical para conectar o primeiro e último filho na parte de cima */
+.tree li:last-child::before {
+    border-right: 2px solid #ccc;
+    border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+}
+
+/* Linha vertical descendo do PAI para os filhos (UL) */
+.tree ul ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #ccc;
+    width: 0;
+    height: 20px;
+}
+
+/* --- ESTILO DO "CARTÃO" (O Nó Visual) --- */
+.node-card {
+    border: 2px solid #ccc;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: all 0.3s;
+    background: white;
+    min-width: 100px;
+    cursor: pointer; /* Indica clicável */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.node-card:hover {
+    background: #f0faff;
+    border-color: #1890ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ANIMAÇÃO DE FLASH --- */
+@keyframes flash-anim {
+    0% {
+        background-color: #ffeb3b;
+        border-color: orange;
+        transform: scale(1.1);
+    }
+    100% {
+        background-color: white;
+        border-color: #ccc;
+        transform: scale(1);
+    }
+}
+
+.flash {
+    animation: flash-anim 0.6s ease-out;
+}

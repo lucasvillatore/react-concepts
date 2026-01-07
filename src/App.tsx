@@ -1,0 +1,86 @@
+import type { TabsProps } from 'antd';
+import { ConfigProvider, Tabs } from 'antd';
+import ptBR from 'antd/locale/pt_BR';
+import DashboardFrankenstein from './examples/ContainerPresentation/Dashboard/bad';
+import DashboardGood from './examples/ContainerPresentation/Dashboard/good';
+import DashboardOk from './examples/ContainerPresentation/Dashboard/ok';
+import UserListBad from './examples/ContainerPresentation/List/bad';
+import UserListContainer from './examples/ContainerPresentation/List/good';
+import RenderGraphWithUpdate from './examples/RenderGraph/multiple';
+import RenderGraph from './examples/RenderGraph/single';
+
+
+function App() {
+
+  const renderGraphFiles: TabsProps['items'] = [
+    { key: 'file-single', label: 'Básico (Single)', children: <RenderGraph /> },
+    { key: 'file-multiple', label: 'Com Propagação (Multiple)', children: <RenderGraphWithUpdate /> },
+  ];
+
+  const containerPatternFiles: TabsProps['items'] = [
+    { key: 'bad-code', label: '❌ Monólito Simples', children: <UserListBad /> },
+    { key: 'good-code', label: '✅ Container Simples', children: <UserListContainer /> },
+  ];
+
+  const dashboardChallengeFiles: TabsProps['items'] = [
+    {
+      key: 'frankestein',
+      label: '🧟‍♂️ Frankenstein (Waterfall)',
+      children: <DashboardFrankenstein />,
+    },
+    {
+      key: 'ok',
+      label: '✨ Refatorado (Paralelo)',
+      children: <DashboardOk />,
+    },
+    {
+      key: 'good',
+      label: '✨ Refatorado (Paralelo + separação de Containers)',
+      children: <DashboardGood />,
+    },
+  ];
+
+  const mainTabs: TabsProps['items'] = [
+    {
+      key: 'folder-rendergraph',
+      label: '📁 Mod 1: Renderização',
+      children: (
+        <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
+          <Tabs defaultActiveKey="file-single" items={renderGraphFiles} type="line" />
+        </div>
+      ),
+    },
+    {
+      key: 'folder-patterns',
+      label: '📁 Mod 2: Container Pattern',
+      children: (
+        <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
+           <h3>Exemplo 1: Lista de Usuários (Básico)</h3>
+           <Tabs defaultActiveKey="bad-code" items={containerPatternFiles} type="line" />
+        </div>
+      ),
+    },
+    {
+      key: 'folder-dashboard',
+      label: '📁 Mod 2: Desafio Complexo',
+      children: (
+        <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
+           <h3>Exemplo 2: O Problema do Waterfall</h3>
+           <p>Abra o console do navegador (F12) para ver a ordem de carregamento.</p>
+           <Tabs defaultActiveKey="frankestein" items={dashboardChallengeFiles} type="line" />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <ConfigProvider locale={ptBR}>
+      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '20px' }}>
+        <h1 style={{ marginBottom: '20px'}}>Arquitetura React Básico ao Avançado</h1>
+        <Tabs defaultActiveKey="folder-dashboard" items={mainTabs} type="card" size="large" />
+      </div>
+    </ConfigProvider>
+  );
+}
+
+export default App;
