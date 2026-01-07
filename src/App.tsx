@@ -1,6 +1,7 @@
 import type { TabsProps } from 'antd';
 import { ConfigProvider, Tabs } from 'antd';
 import ptBR from 'antd/locale/pt_BR';
+import CompositionGallery from './examples/Composition/Gallery';
 import DashboardFrankenstein from './examples/ContainerPresentation/Dashboard/bad';
 import DashboardGood from './examples/ContainerPresentation/Dashboard/good';
 import DashboardOk from './examples/ContainerPresentation/Dashboard/ok';
@@ -8,7 +9,6 @@ import UserListBad from './examples/ContainerPresentation/List/bad';
 import UserListContainer from './examples/ContainerPresentation/List/good';
 import RenderGraphWithUpdate from './examples/RenderGraph/multiple';
 import RenderGraph from './examples/RenderGraph/single';
-
 
 function App() {
 
@@ -18,25 +18,33 @@ function App() {
   ];
 
   const containerPatternFiles: TabsProps['items'] = [
-    { key: 'bad-code', label: '❌ Monólito Simples', children: <UserListBad /> },
-    { key: 'good-code', label: '✅ Container Simples', children: <UserListContainer /> },
+    { key: 'bad-code', label: 'Monólito Simples', children: <UserListBad /> },
+    { key: 'good-code', label: 'Container Simples', children: <UserListContainer /> },
   ];
 
   const dashboardChallengeFiles: TabsProps['items'] = [
     {
       key: 'frankestein',
-      label: '🧟‍♂️ Frankenstein (Waterfall)',
+      label: 'Frankenstein (Waterfall)',
       children: <DashboardFrankenstein />,
     },
     {
       key: 'ok',
-      label: '✨ Refatorado (Paralelo)',
+      label: 'Refatorado (Paralelo)',
       children: <DashboardOk />,
     },
     {
       key: 'good',
-      label: '✨ Refatorado (Paralelo + separação de Containers)',
+      label: 'Refatorado (Paralelo + Separação de Containers)',
       children: <DashboardGood />,
+    },
+  ];
+
+  const compositionFiles: TabsProps['items'] = [
+    {
+      key: 'composition',
+      label: 'Composition',
+      children: <CompositionGallery />,
     },
   ];
 
@@ -71,13 +79,23 @@ function App() {
         </div>
       ),
     },
+    {
+      key: 'folder-composition',
+      label: '📁 Mod 4: Composition',
+      children: (
+        <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
+           <h3>Exemplo 4: Composição de Componentes</h3>
+           <Tabs defaultActiveKey="composition" items={compositionFiles} type="line" />
+        </div>
+      ),
+    },
   ];
 
   return (
     <ConfigProvider locale={ptBR}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '20px' }}>
         <h1 style={{ marginBottom: '20px'}}>Arquitetura React Básico ao Avançado</h1>
-        <Tabs defaultActiveKey="folder-dashboard" items={mainTabs} type="card" size="large" />
+        <Tabs defaultActiveKey="folder-rendergraph" items={mainTabs} type="card" size="large" />
       </div>
     </ConfigProvider>
   );
