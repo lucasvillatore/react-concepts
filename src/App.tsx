@@ -62,7 +62,7 @@ function App() {
     },
     {
       key: 'folder-dashboard',
-      label: '📁 Mod 2: Desafio Complexo',
+      label: '📁 Mod 3: Container Pattern + Waterfall',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
            <h3>Exemplo 2: O Problema do Waterfall</h3>
