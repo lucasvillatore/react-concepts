@@ -2,13 +2,13 @@ import type { TabsProps } from 'antd';
 import { ConfigProvider, Tabs } from 'antd';
 import ptBR from 'antd/locale/pt_BR';
 import CompositionGallery from './examples/Composition/Gallery';
-import DashboardFrankenstein from './examples/ContainerPresentation/Dashboard/bad';
-import DashboardGood from './examples/ContainerPresentation/Dashboard/good';
-import DashboardOk from './examples/ContainerPresentation/Dashboard/ok';
-import UserListBad from './examples/ContainerPresentation/List/bad';
-import UserListContainer from './examples/ContainerPresentation/List/good';
-import RenderGraphWithUpdate from './examples/RenderGraph/multiple';
-import RenderGraph from './examples/RenderGraph/single';
+import DashboardFrankenstein from './examples/ContainerPresentation/Dashboard/Bad';
+import DashboardGood from './examples/ContainerPresentation/Dashboard/Good';
+import DashboardOk from './examples/ContainerPresentation/Dashboard/Ok';
+import UserListBad from './examples/ContainerPresentation/List/Bad';
+import UserListContainer from './examples/ContainerPresentation/List/Good';
+import RenderGraphWithUpdate from './examples/RenderGraph/Multiple';
+import RenderGraph from './examples/RenderGraph/Single';
 
 function App() {
 
