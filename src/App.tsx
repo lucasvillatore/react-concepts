@@ -2,6 +2,7 @@ import type { TabsProps } from 'antd';
 import { ConfigProvider, Tabs } from 'antd';
 import ptBR from 'antd/locale/pt_BR';
 import CompositionGallery from './examples/Composition/Gallery';
+import CompositionGallerySortable from './examples/Composition/SortableGallery';
 import DashboardFrankenstein from './examples/ContainerPresentation/Dashboard/Bad';
 import DashboardGood from './examples/ContainerPresentation/Dashboard/Good';
 import DashboardOk from './examples/ContainerPresentation/Dashboard/Ok';
@@ -43,8 +44,13 @@ function App() {
   const compositionFiles: TabsProps['items'] = [
     {
       key: 'composition',
-      label: 'Composition',
+      label: 'Composition de UI',
       children: <CompositionGallery />,
+    },
+    {
+      key: 'composition-behavior',
+      label: 'Composition de Comportamento',
+      children: <CompositionGallerySortable />,
     },
   ];
 
