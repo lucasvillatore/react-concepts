@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import './style.css'; // Assume o mesmo CSS do exemplo anterior
+import './style.css';
 
-// 1. Estrutura de dados COMPLETA (igual ao exemplo estável)
 interface GraphNode {
   id: string;
   label: string;
@@ -38,12 +37,10 @@ const initialGraphData: GraphNode[] = [
   }
 ];
 
-// --- COMPONENTE NODE ---
-// Visualmente idêntico ao estável, mas adaptado para mostrar a key dinâmica
 interface NodeProps {
   label: string;
   children?: ReactNode;
-  displayKey: string; // Para mostrar na tela qual key o React está vendo
+  displayKey: string;
 }
 
 function Node({ label, children, displayKey }: NodeProps) {
@@ -63,7 +60,6 @@ function Node({ label, children, displayKey }: NodeProps) {
       <div
         id={`node-visual-${displayKey}`}
         className="node-card"
-        // Borda pontilhada vermelha para diferenciar visualmente do exemplo "Bom"
         style={{ border: '2px dashed #ff4d4f' }}
         onClick={(e) => {
             e.stopPropagation();
@@ -82,7 +78,6 @@ function Node({ label, children, displayKey }: NodeProps) {
         </small>
         <br/>
 
-        {/* Mostra a Key atual para provar que mudou */}
         <small style={{
             fontSize: '0.65em',
             color: '#fff',
