@@ -15,32 +15,25 @@ function Node({ label, children, initialValue = 0, parentSum = 0 }: NodeProps) {
   const renderCount = useRef(0);
   const countSpanRef = useRef<HTMLElement>(null);
 
-  // NOVA REF: Referência direta para o cartão visual (a div)
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
      renderCount.current += 1;
 
-     // Atualiza o texto de contagem
      if (countSpanRef.current) {
          countSpanRef.current.innerText = `Renders: ${renderCount.current}`;
      }
 
-     // Lógica do Flash (Piscar) - Agora usando REF, muito mais seguro
      if (cardRef.current) {
          const el = cardRef.current;
 
-         // Remove a classe
          el.classList.remove('flash');
 
-         // Truque do navegador: Força o "Reflow" (ler uma propriedade de dimensão)
-         // Isso obriga o navegador a processar que a classe saiu
          void el.offsetWidth;
 
-         // Adiciona a classe de volta para reiniciar a animação
          el.classList.add('flash');
      }
-  }); // Sem array de dependências = Roda SEMPRE que renderizar
+  });
 
   const handleClick = (e: MouseEvent) => {
     e.stopPropagation();
@@ -50,7 +43,7 @@ function Node({ label, children, initialValue = 0, parentSum = 0 }: NodeProps) {
   return (
     <li>
       <div
-        ref={cardRef} // <--- Ligamos a REF aqui
+        ref={cardRef}
         className="node-card"
         onClick={handleClick}
         title={`Pai (${parentSum}) + Local (${localCount}) = ${totalValue}`}

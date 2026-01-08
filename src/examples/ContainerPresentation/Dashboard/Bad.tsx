@@ -13,37 +13,25 @@ export default function DashboardFrankenstein() {
   const [sales, setSales] = useState<Sale[]>([]);
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
-  // Um loading booleano para governar todos eles
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // =========================================================
-  // 2. WATERFALL REQUEST (O Efeito Cascata)
-  // O usuário espera a soma de todos os tempos: 1.5s + 1s + 2s + 0.8s...
-  // =========================================================
   useEffect(() => {
     async function loadFullDashboard() {
       try {
-        // Passo A: Pega usuário
         const userData = await getUserProfile();
         setUser(userData);
 
-        // Passo B: Pega endereço (depende do user)
-        // Até aqui faz sentido esperar, mas trava o resto da tela
         const addressData = await getUserAddress(userData.cep);
         setAddress(addressData);
 
-        // Passo C: Pega Vendas (Não depende do user, podia ser paralelo!)
-        // Mas como está num await sequencial, ele espera o endereço carregar para começar.
         const salesData = await getSalesHistory();
         setSales(salesData);
 
-        // Passo D: Pega Notificações (Independente também)
         const notifsData = await getExternalNotifications();
         setNotifications(notifsData);
 
       } catch (err) {
-        // Se a API de Notificação falhar, o usuário não vê NADA (nem o perfil dele)
         console.error(err);
         setError('Falha crítica ao carregar o sistema. Tente novamente mais tarde.');
       } finally {
@@ -53,11 +41,6 @@ export default function DashboardFrankenstein() {
 
     loadFullDashboard();
   }, []);
-
-  // =========================================================
-  // 3. UI MONOLÍTICA
-  // Se eu quiser reutilizar o widget de vendas, não consigo.
-  // =========================================================
 
   if (loading) {
     return (
