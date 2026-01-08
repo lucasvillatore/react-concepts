@@ -10,12 +10,16 @@ import UserListBad from './examples/ContainerPresentation/List/Bad';
 import UserListContainer from './examples/ContainerPresentation/List/Good';
 import RenderGraphWithUpdate from './examples/RenderGraph/Multiple';
 import RenderGraph from './examples/RenderGraph/Single';
+import StaticKey from './examples/RenderGraph/StaticKey';
+import DynamicKey from './examples/RenderGraph/DynamicKey';
 
 function App() {
 
   const renderGraphFiles: TabsProps['items'] = [
     { key: 'file-single', label: 'Básico (Single)', children: <RenderGraph /> },
     { key: 'file-multiple', label: 'Com Propagação (Multiple)', children: <RenderGraphWithUpdate /> },
+    { key: 'static-key', label: 'Keys estáticas', children: <StaticKey /> },
+    { key: 'dynamic-key', label: 'Keys dinâmicas', children: <DynamicKey /> },
   ];
 
   const containerPatternFiles: TabsProps['items'] = [

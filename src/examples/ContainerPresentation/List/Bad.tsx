@@ -1,6 +1,6 @@
 import { Avatar, Card, List, Spin, Tag } from 'antd';
 import { useEffect, useState } from 'react';
-import { fetchUsers, type User } from '../../../services/user.api';
+import { fetchUsers, type User } from './services/user.api';
 
 export default function UserListBad() {
   const [users, setUsers] = useState<User[]>([]);
