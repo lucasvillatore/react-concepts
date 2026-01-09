@@ -11,7 +11,7 @@ import UserListContainer from './examples/ContainerPresentation/List/Good';
 import ToDoBad from './examples/CustomHooks/Bad';
 import ToDoGood from './examples/CustomHooks/Good';
 import ProductManagerChaos from './examples/Refactor/Bad/Bad';
-import { ProductManagerPage } from './examples/Refactor/Good';
+import ProductManagerPage from './examples/Refactor/Good/components/List/ProductManager';
 import DynamicKey from './examples/RenderGraph/DynamicKey';
 import RenderGraphWithUpdate from './examples/RenderGraph/Multiple';
 import RenderGraph from './examples/RenderGraph/Single';
