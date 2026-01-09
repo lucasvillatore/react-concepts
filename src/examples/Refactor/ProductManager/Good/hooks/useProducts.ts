@@ -1,8 +1,7 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { fetchProducts } from '../services/products.api';
-
-const QUERY_KEY = 'products';
+import { productKeys } from './queryKeys';
 
 export const useProductsQuery = () => {
   const [filter, setFilter] = useState('');
@@ -13,7 +12,7 @@ export const useProductsQuery = () => {
     isError,
     isFetching
   } = useQuery({
-    queryKey: [QUERY_KEY, filter],
+    queryKey: productKeys.list(filter),
     queryFn: () => fetchProducts(filter),
     staleTime: 1000 * 60,
     placeholderData: keepPreviousData,
