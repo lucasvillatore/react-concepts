@@ -16,6 +16,7 @@ import DynamicKey from './examples/RenderGraph/DynamicKey';
 import RenderGraphWithUpdate from './examples/RenderGraph/Multiple';
 import RenderGraph from './examples/RenderGraph/Single';
 import StaticKey from './examples/RenderGraph/StaticKey';
+import LiveRefactor from './examples/Refactor/ProductManager/Live/Refactor';
 
 function App() {
 
@@ -66,12 +67,12 @@ function App() {
     {
       key: 'hooks-bad',
       label: 'Sem hooks',
-      children: < ToDoBad/>,
+      children: < ToDoBad />,
     },
     {
       key: 'hooks-good',
       label: 'Com hooks',
-      children: < ToDoGood/>,
+      children: < ToDoGood />,
     }
   ];
 
@@ -79,12 +80,17 @@ function App() {
     {
       key: 'refator-bad',
       label: 'Sem refactor',
-      children: < ProductManagerChaos/>,
+      children: < ProductManagerChaos />,
     },
     {
       key: 'refator-good',
       label: 'Com refactor',
-      children: < ProductManagerPage/>,
+      children: < ProductManagerPage />,
+    },
+    {
+      key: 'refator-live',
+      label: 'Com refactor ao vivo',
+      children: < LiveRefactor />,
     },
   ];
 
@@ -103,8 +109,8 @@ function App() {
       label: '📁 Mod 2: Container Pattern',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 1: Lista de Usuários (Básico)</h3>
-           <Tabs defaultActiveKey="bad-code" items={containerPatternFiles} type="line" />
+          <h3>Exemplo 1: Lista de Usuários (Básico)</h3>
+          <Tabs defaultActiveKey="bad-code" items={containerPatternFiles} type="line" />
         </div>
       ),
     },
@@ -113,9 +119,9 @@ function App() {
       label: '📁 Mod 3: Container Pattern + Waterfall',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 3: O Problema do Waterfall</h3>
-           <p>Abra o console do navegador (F12) para ver a ordem de carregamento.</p>
-           <Tabs defaultActiveKey="frankestein" items={dashboardChallengeFiles} type="line" />
+          <h3>Exemplo 3: O Problema do Waterfall</h3>
+          <p>Abra o console do navegador (F12) para ver a ordem de carregamento.</p>
+          <Tabs defaultActiveKey="frankestein" items={dashboardChallengeFiles} type="line" />
         </div>
       ),
     },
@@ -124,8 +130,8 @@ function App() {
       label: '📁 Mod 4: Composition',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 4: Composição de Componentes</h3>
-           <Tabs defaultActiveKey="composition" items={compositionFiles} type="line" />
+          <h3>Exemplo 4: Composição de Componentes</h3>
+          <Tabs defaultActiveKey="composition" items={compositionFiles} type="line" />
         </div>
       ),
     },
@@ -134,8 +140,8 @@ function App() {
       label: '📁 Mod 5: Hooks',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 5: Hooks</h3>
-           <Tabs defaultActiveKey="hooks-bad" items={hooksFiles} type="line" />
+          <h3>Exemplo 5: Hooks</h3>
+          <Tabs defaultActiveKey="hooks-bad" items={hooksFiles} type="line" />
         </div>
       ),
     },
@@ -144,8 +150,8 @@ function App() {
       label: '📁 Mod 6: Refactor',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 5: Hands On - Refactor</h3>
-           <Tabs defaultActiveKey="refactor-bad" items={refactor} type="line" />
+          <h3>Exemplo 5: Hands On - Refactor</h3>
+          <Tabs defaultActiveKey="refactor-bad" items={refactor} type="line" />
         </div>
       ),
     },
@@ -154,7 +160,7 @@ function App() {
   return (
     <ConfigProvider locale={ptBR}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '20px' }}>
-        <h1 style={{ marginBottom: '20px'}}>Arquitetura React Básico ao Avançado</h1>
+        <h1 style={{ marginBottom: '20px' }}>Arquitetura React Básico ao Avançado</h1>
         <Tabs defaultActiveKey="folder-rendergraph" items={mainTabs} type="card" size="large" />
       </div>
     </ConfigProvider>
