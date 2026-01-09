@@ -113,7 +113,7 @@ function App() {
       label: '📁 Mod 3: Container Pattern + Waterfall',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 2: O Problema do Waterfall</h3>
+           <h3>Exemplo 3: O Problema do Waterfall</h3>
            <p>Abra o console do navegador (F12) para ver a ordem de carregamento.</p>
            <Tabs defaultActiveKey="frankestein" items={dashboardChallengeFiles} type="line" />
         </div>
@@ -134,7 +134,7 @@ function App() {
       label: '📁 Mod 5: Hooks',
       children: (
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
-           <h3>Exemplo 4: Composição de Componentes</h3>
+           <h3>Exemplo 5: Hooks</h3>
            <Tabs defaultActiveKey="hooks-bad" items={hooksFiles} type="line" />
         </div>
       ),
