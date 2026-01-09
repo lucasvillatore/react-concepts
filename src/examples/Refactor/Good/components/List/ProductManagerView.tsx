@@ -28,7 +28,7 @@ export default function ProductManagerView({
       return <Spin size="large" style={{ display: 'block', margin: '100px auto' }} />;
   }
 
-  if (error) return <Alert message={error} type="error" />;
+  if (error) return <Alert title={error} type="error" />;
 
   const isUpdating = loading || isFetching;
 
