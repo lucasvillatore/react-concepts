@@ -3,16 +3,16 @@ import { Button } from "antd";
 import { useDeleteProduct } from "../../hooks/useDeleteProduct";
 import { usePromoteProduct } from "../../hooks/usePromoteProduct";
 import type { Product } from "../../services/products.api";
-import CategoryTag from "./CategoryTag";
-import PriceTag from "./PriceTag";
-import ProductCardFrame from "./ProductCardFrame";
-import PromotedBadge from "./PromotedBadge";
+import CategoryTag from "../atoms/CategoryTag";
+import PriceTag from "../atoms/PriceTag";
+import PromotedBadge from "../atoms/PromotedBadge";
+import ProductCardFrame from "./ProductCardFrame.view";
 
 interface Props {
   product: Product;
 }
 
-export default function ProductCardContainer({ product }: Props) {
+export default function ProductCard({ product }: Props) {
   const {
     mutate: promote,
     isPending: isPromoting

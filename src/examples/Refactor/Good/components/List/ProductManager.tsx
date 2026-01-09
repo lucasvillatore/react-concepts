@@ -1,7 +1,7 @@
-import ProductManagerView from '../components/List/ProductManagerView';
-import { useProductsQuery } from '../hooks/useProducts';
+import { useProductsQuery } from '../../hooks/useProducts';
+import ProductManagerView from './ProductManager.view';
 
-export default function ProductManagerPage() {
+export default function ProductManager() {
   const {
     products,
     loading,

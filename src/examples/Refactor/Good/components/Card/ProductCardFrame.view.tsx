@@ -2,19 +2,19 @@ import { ShoppingOutlined, StarOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import { type ReactNode } from 'react';
 
-interface ProductCardFrameProps {
+interface Props {
   title: ReactNode;
   variant?: 'default' | 'promoted';
   actions?: ReactNode[];
   children: ReactNode;
 }
 
-export default function ProductCardFrame({
+export default function ProductCardView({
   title,
   variant = 'default',
   actions,
   children
-}: ProductCardFrameProps) {
+}: Props) {
 
   const isPromoted = variant === 'promoted';
 

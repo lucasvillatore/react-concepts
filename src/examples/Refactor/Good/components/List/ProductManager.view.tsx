@@ -1,6 +1,6 @@
 import { Alert, Col, Input, Row, Spin, Typography } from "antd";
 import type { Product } from "../../services/products.api";
-import ProductCardContainer from "../Card/ProductCardContainer";
+import ProductCardContainer from "../Card/ProductCard";
 
 const { Title, Text } = Typography;
 
