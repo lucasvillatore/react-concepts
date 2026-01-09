@@ -4,7 +4,7 @@ export interface Todo {
   completed: boolean;
 }
 
-let mockDatabase: Todo[] = [
+const mockDatabase: Todo[] = [
   { id: 1, title: 'Aprender React Query', completed: true },
   { id: 2, title: 'Entender Custom Hooks', completed: false },
 ];

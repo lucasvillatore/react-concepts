@@ -10,6 +10,8 @@ import UserListBad from './examples/ContainerPresentation/List/Bad';
 import UserListContainer from './examples/ContainerPresentation/List/Good';
 import ToDoBad from './examples/CustomHooks/Bad';
 import ToDoGood from './examples/CustomHooks/Good';
+import ProductManagerChaos from './examples/Refactor/Bad/Bad';
+import { ProductManagerPage } from './examples/Refactor/Good';
 import DynamicKey from './examples/RenderGraph/DynamicKey';
 import RenderGraphWithUpdate from './examples/RenderGraph/Multiple';
 import RenderGraph from './examples/RenderGraph/Single';
@@ -73,6 +75,19 @@ function App() {
     }
   ];
 
+  const refactor: TabsProps['items'] = [
+    {
+      key: 'refator-bad',
+      label: 'Sem refactor',
+      children: < ProductManagerChaos/>,
+    },
+    {
+      key: 'refator-good',
+      label: 'Com refactor',
+      children: < ProductManagerPage/>,
+    },
+  ];
+
   const mainTabs: TabsProps['items'] = [
     {
       key: 'folder-rendergraph',
@@ -121,6 +136,16 @@ function App() {
         <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
            <h3>Exemplo 4: Composição de Componentes</h3>
            <Tabs defaultActiveKey="hooks-bad" items={hooksFiles} type="line" />
+        </div>
+      ),
+    },
+    {
+      key: 'folder-refactor',
+      label: '📁 Mod 6: Refactor',
+      children: (
+        <div style={{ padding: 20, border: '1px solid #f0f0f0', background: '#fafafa' }}>
+           <h3>Exemplo 5: Hands On - Refactor</h3>
+           <Tabs defaultActiveKey="refactor-bad" items={refactor} type="line" />
         </div>
       ),
     },
